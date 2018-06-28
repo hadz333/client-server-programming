@@ -8,23 +8,70 @@
 body {
   background-image: url('images/stucco/stucco.png');
 }
+
+#main {
+    width: 900px;
+    margin: auto;
+}
+
 #top_bar {
   display: inline-block;
-  width: 740px;
+  width: 800px;
   text-align: right;
   background-color: black;
 }
+
 header h1 {
   font-size: 48px;
 }
+
 #top_bar a {
   color: grey;
   text-decoration: none;
 }
+
 #top_bar ul {
   list-style-type: none;
 }
 
+#top_bar li {
+  display: inline;
+  margin: 8px;
+}
+
+#bottom_bar {
+  background-color: #F0F0F0;
+  width: 800px;
+}
+
+#bottom_bar a {
+  color: grey;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#bottom_bar ul {
+  list-style-type: none;
+}
+
+#bottom_bar li {
+  display: inline;
+  margin: 8px;
+}
+
+#product {
+  background-color: white;
+  width: 800px;
+}
+
 #product img {
   float: left;
+  width: 35%;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+#price {
+  color: red;
+  font-weight: bold;
 }
