@@ -1,0 +1,30 @@
+/* ********************************************************* */
+/* TCSS460 - Assignment 1                                    */
+/* CSS file                                                  */
+/* Completed based on the assignment handout                 */
+/* Author: Dino Hadzic                                       */
+/* ********************************************************* */
+
+body {
+  background-image: url('images/stucco/stucco.png');
+}
+#top_bar {
+  display: inline-block;
+  width: 740px;
+  text-align: right;
+  background-color: black;
+}
+header h1 {
+  font-size: 48px;
+}
+#top_bar a {
+  color: grey;
+  text-decoration: none;
+}
+#top_bar ul {
+  list-style-type: none;
+}
+
+#product img {
+  float: left;
+}
