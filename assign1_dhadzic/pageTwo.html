@@ -1,3 +1,10 @@
+<!-- ********************************************************* -->
+<!-- TCSS460 - Assignment 1                                    -->
+<!-- Page two HTML file                                        -->
+<!-- Completed based on the assignment handout                 -->
+<!-- Author: Dino Hadzic                                       -->
+<!-- ********************************************************* -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,5 +13,108 @@
     <title>Assignment 1 - Page 2</title>
   </head>
   <body>
+    <div id="main">
+      <header>
+        <nav id="top_bar">
+          <ul>
+            <li><a href="pageTwo.html">My Account</a></li>
+            <li><a href="#">Wish List</a></li>
+            <li><a href="#">Shopping Cart</a></li>
+            <li><a href="#">Checkout</a></li>
+          </ul>
+        </nav>
+        <h1>Art Store</h1>
+        <nav id="bottom_bar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Art Works</a></li>
+            <li><a href="#">Artists</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="registration">
+        <h2>Customer Registration</h2>
+        <form method="get" action="http://faculty.washington.edu/ealmasri/assign1.php">
+          <fieldset>
+            <table>
+              <tr>
+                <td colspan="3"><h3>1. User Info </h3>
+                <hr /></td>
+              </tr>
+              <tr>
+                <td style="width:240px;"><label>First Name <br /> </label> <input type="text" name="first" placeholder="First" /></td>
+                <td style="width:120px;"><label>Last Name <br /> </label> <input type="text" name="last" placeholder="Last" /></td>
+              </tr>
+              <tr>
+                <td colspan="3"><label>Email <br /> </label> <input type="email" name="email" id="email" placeholder="email@something.com" /></td>
+              </tr>
+              <tr>
+                <td><label>Password <br /> </label> <input type="password" name="pass1" placeholder="Must be 6-14 characters" /></td>
+                <td><label>Password Repeat <br /> </label> <input type="password" name="pass2" placeholder="Must be 6-14 characters" /></td>
+              </tr>
+              <tr>
+              <td colspan="3"><h3>2. Location </h3>
+              <hr /> </td>
+              </tr>
+              <tr>
+                <td colspan="3"><label>Address <br /> </label> <input type="text" name="address" id="address" placeholder="1900 Commerce Street"/></td>
+              </tr>
+              <tr>
+                <td><label>City </label><br /> <input type="text" name="city" /></td>
+                <td><label>State </label><br /> <input type="text" name="state" id="state" /></td>
+                <td><label>Zip </label><br /> <input type="text" name="zip" id="zip" /></td>
+              </tr>
+              <tr>
+                <td><label>Phone </label><br /> <input type="tel" name="phone" /></td>
+                <td><label>Country </label><br />
+                <select name="country">
+                  <option value="United States">United States</option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Continent <br />
+                  <input type="radio" name="continent" value="1">Africa<br />
+                  <input type="radio" name="continent" value="2">Antarctica<br />
+                  <input type="radio" name="continent" value="3">Asia  <br />
+                  <input type="radio" name="continent" value="4">Australia <br />
+                  <input type="radio" name="continent" value="5">Europe <br />
+                  <input type="radio" name="continent" value="6">North America <br />
+                  <input type="radio" name="continent" value="7">South America <br />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3"><h3>3. Personal Details </h3>
+                <hr /> </td>
+              </tr>
+              <tr>
+                <td><label>Birth Day </label><br /> <input type="date" name="birthday" /></td>
+                <td><label>Favorite Color</label><br /> <input type="color" name="favorite" /></td>
+              </tr>
+              <tr>
+                <td colspan="3"><label>Interest In Art </label><br />
+                  <label>Minimal</label>
+                  <input type="range" min="0" max="3" class="slider" name="interest" />
+                  <label>Love it!</label></td>
+              </tr>
+              <tr>
+                <td colspan="3"><h3>4. All Done </h3>
+                <hr /> </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="accept" /><label>I agree to the <a href="#">terms of the site</a></label></td>
+              </tr>
+              <tr>
+                <td><button type="submit"><img src="images/button_ok.png" border="0" alt="OK Button" />Sign me up!</button></td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+      <footer>
+        <p>All images are copyright to their owners. This is just a hypothetical site &copy; 2018 Copyright Art Store</p>
+      </footer>
+    </div>
   </body>
 </html>

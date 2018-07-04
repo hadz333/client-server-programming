@@ -201,3 +201,43 @@ footer {
   padding-bottom: 2px;
   margin-top: 10px;
 }
+
+.registration {
+  background-color: white;
+  width: 800px;
+}
+
+.registration h2 {
+  margin-bottom: 0px;
+}
+
+.registration h3 {
+  margin-bottom: 0px;
+}
+
+.registration hr {
+  border-top: 1px solid #E6E6E6;
+  width: 760px;
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.registration fieldset {
+  border: none;
+}
+
+.registration #email, #address {
+  width: 460px;
+}
+
+.registration #state {
+  width: 60px;
+}
+
+.registration #zip {
+  width: 120px;
+}
+
+.registration .slider {
+  width: 300px;
+}
