@@ -107,7 +107,7 @@
       $(".gallery").append('<li><img src="images/square/' + $(current_image).prop("path") + '" alt="' + $(current_image).prop("title") + '"></img></li>');
       //image_list.push('<li><img src="images/square/' + $(current_image).prop("path") + '" alt="' + $(current_image).prop("title") + '"></a></li>');
     }
-    console.log(image_list);
+    //console.log(image_list);
     //$(".gallery").append(image_list);
 
     $(".gallery").mouseenter(function(e) {
@@ -115,18 +115,41 @@
       selected_image.attr("class", "gray");
       var file_path = selected_image.attr("src");
       var pic_title = selected_image.attr("alt");
-      console.log(pic_title);
       var image_number = file_path.substring(14);
-      console.log(selected_image.attr("alt"));
+      //console.log(selected_image.attr("alt"));
+      var image_city, image_country, image_date;
+      for (var i = 0; i < images.length; i++) {
+        var current_image = $(images[i]);
+        if ($(current_image).attr("title") == pic_title) {
+          image_city = $(current_image).prop("city");
+          image_country = $(current_image).prop("country");
+          image_date = $(current_image).prop("taken");
+        }
+      }
 
       //console.log('<div id="preview"><img src="images/medium/' + image_number + '" alt ="' + selected_image.attr("alt") + '"></img></div>');
       $("body").append('<div id="preview"><img src="images/medium/' + image_number + '" alt ="'
-                       + selected_image.attr("alt") + '"></img><br><p>' + pic_title + '<br>'
-                       + '</p></div>');
+                       + selected_image.attr("alt") + '"></img><br><p>' + pic_title + '<br><i>'
+                       + image_city + ', ' + image_country + ' [' + image_date + ']' + '</i></p></div>');
 
       var mouseX = $(e.pageX);
       var mouseY = $(e.pageY);
-      //console.log($("body").html());
+      console.log($("body").html());
+      $("#preview").css("left", mouseX[0] + 10).show();
+      $("#preview").css("top", mouseY[0] + 10).show();
+    });
+
+    $(".gallery").mouseleave(function(e) {
+      var selected_image = $(e.target);
+      console.log(selected_image);
+      selected_image.attr("class", "none");
+      $("div").remove("#preview");
+      console.log($("body").html());
+    });
+
+    $(".gallery").mousemove(function(e) {
+      var mouseX = $(e.pageX);
+      var mouseY = $(e.pageY);
       $("#preview").css("left", mouseX[0] + 10).show();
       $("#preview").css("top", mouseY[0] + 10).show();
     });
