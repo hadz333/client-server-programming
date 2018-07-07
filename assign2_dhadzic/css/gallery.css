@@ -13,7 +13,7 @@
 }
 
 
-.gallery img{
+.gallery img {
     margin: 0px;
     padding: 0px;
     float: left;
@@ -29,7 +29,7 @@
     background-color: #424242;
 }
 #preview p {
-    color: white; 
+    color: white;
     margin-top: 3px;
     margin-bottom: 3px;
 }

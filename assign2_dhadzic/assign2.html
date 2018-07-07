@@ -104,7 +104,7 @@
     for (var i = 0; i < images.length; i++) {
       var current_image = $(images[i]);
       console.log(current_image);
-      $(".gallery").append('<li><img src="images/square/' + $(current_image).prop("path") + '" alt="' + $(current_image).prop("title") + '"></a></li>');
+      $(".gallery").append('<li><img src="images/square/' + $(current_image).prop("path") + '" alt="' + $(current_image).prop("title") + '"></img></li>');
       //image_list.push('<li><img src="images/square/' + $(current_image).prop("path") + '" alt="' + $(current_image).prop("title") + '"></a></li>');
     }
     console.log(image_list);
@@ -113,7 +113,22 @@
     $(".gallery").mouseenter(function(e) {
       var selected_image = $(e.target);
       selected_image.attr("class", "gray");
-      //($".gallery").append("<div id='preview'>")
+      var file_path = selected_image.attr("src");
+      var pic_title = selected_image.attr("alt");
+      console.log(pic_title);
+      var image_number = file_path.substring(14);
+      console.log(selected_image.attr("alt"));
+
+      //console.log('<div id="preview"><img src="images/medium/' + image_number + '" alt ="' + selected_image.attr("alt") + '"></img></div>');
+      $("body").append('<div id="preview"><img src="images/medium/' + image_number + '" alt ="'
+                       + selected_image.attr("alt") + '"></img><br><p>' + pic_title + '<br>'
+                       + '</p></div>');
+
+      var mouseX = $(e.pageX);
+      var mouseY = $(e.pageY);
+      //console.log($("body").html());
+      $("#preview").css("left", mouseX[0] + 10).show();
+      $("#preview").css("top", mouseY[0] + 10).show();
     });
 
   </script>
