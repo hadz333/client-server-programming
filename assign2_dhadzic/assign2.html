@@ -110,7 +110,7 @@
     //console.log(image_list);
     //$(".gallery").append(image_list);
 
-    $(".gallery").mouseenter(function(e) {
+    $(".gallery li").mouseenter(function(e) {
       var selected_image = $(e.target);
       selected_image.attr("class", "gray");
       var file_path = selected_image.attr("src");
@@ -139,15 +139,15 @@
       $("#preview").css("top", mouseY[0] + 10).show();
     });
 
-    $(".gallery").mouseleave(function(e) {
+    $(".gallery li").mouseleave(function(e) {
       var selected_image = $(e.target);
       console.log(selected_image);
-      selected_image.attr("class", "none");
+      selected_image.removeClass("gray");
       $("div").remove("#preview");
       console.log($("body").html());
     });
 
-    $(".gallery").mousemove(function(e) {
+    $(".gallery li").mousemove(function(e) {
       var mouseX = $(e.pageX);
       var mouseY = $(e.pageY);
       $("#preview").css("left", mouseX[0] + 10).show();
