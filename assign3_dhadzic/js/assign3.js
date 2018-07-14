@@ -158,6 +158,22 @@ $(function () {
     */
     function loadOSFilter() {
             //TO DO : complete this function ....
+            $.get("http://www.randyconnolly.com/funwebdev/services/visits/os.php")
+                .done(function(data) {
+                    osData = data;
+                    var list = "";
+                    $.each(data, function(index,value) {
+                      list += "<option value='" + value.id + "'>" + value.name + "</option>";
+                    });
+                    $("#filterOS").append(list);
+
+                })
+                .fail(function(xhr,status,error) {
+                    alert("failed loading OS data - status=" + status + " error=" + error);
+                })
+                .always(function(data) {
+                    //$('.animLoading').fadeOut("slow");
+                });
     }
 
 
@@ -203,7 +219,7 @@ $(function () {
     */
     function makePieChart() {
         //TO DO : complete this function ....
-
+        
     }
 
     /*
