@@ -133,8 +133,23 @@ $(function () {
         Populate browsers filter drop-down with data from web service
     */
     function loadBrowsersFilter() {
-              //TO DO : complete this function ....
-              
+        //TO DO : complete this function ....
+        $.get("http://www.randyconnolly.com/funwebdev/services/visits/browsers.php")
+            .done(function(data) {
+                browserData = data;
+                var list = "";
+                $.each(data, function(index,value) {
+                  list += "<option value='" + value.id + "'>" + value.name + "</option>";
+                });
+                $("#filterBrowser").append(list);
+
+            })
+            .fail(function(xhr,status,error) {
+                alert("failed loading browser data - status=" + status + " error=" + error);
+            })
+            .always(function(data) {
+                //$('.animLoading').fadeOut("slow");
+            });
     }
 
 
