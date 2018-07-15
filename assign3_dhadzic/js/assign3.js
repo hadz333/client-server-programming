@@ -140,6 +140,7 @@ $(function () {
                 var list = "";
                 $.each(data, function(index,value) {
                   list += "<option value='" + value.id + "'>" + value.name + "</option>";
+                  value.count = 0;
                 });
                 $("#filterBrowser").append(list);
 
@@ -164,6 +165,7 @@ $(function () {
                     var list = "";
                     $.each(data, function(index,value) {
                       list += "<option value='" + value.id + "'>" + value.name + "</option>";
+                      value.count = 0;
                     });
                     $("#filterOS").append(list);
 
@@ -195,6 +197,7 @@ $(function () {
         // now display the Google geochart
         google.charts.setOnLoadCallback(drawRegionsMap);
 
+
         // callback function
         function drawRegionsMap() {
             // create a data array in format expected by the chart
@@ -219,7 +222,33 @@ $(function () {
     */
     function makePieChart() {
         //TO DO : complete this function ....
-        
+        $.each(visitsData, function(index1,visit) {
+            for (var i=0 ; i < browserData.length; i++) {
+                if (visit.browser_id == browserData[i].id) {
+                    browserData[i].count++;
+                }
+            }
+        });
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+          var table = [ ['Browser', 'Count'] ];
+          for (var i=0 ; i < browserData.length; i++) {
+              if (browserData[i].count > 0) {
+                  table.push( [ browserData[i].name, browserData[i].count ] );
+              }
+          }
+
+          var options = {
+            legend: {position: 'none'}
+          };
+
+          var data = google.visualization.arrayToDataTable(table);
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+          chart.draw(data, options);
+        }
     }
 
     /*
@@ -227,6 +256,40 @@ $(function () {
     */
     function makeColumnChart() {
         //TO DO : complete this function ....
+        $.each(visitsData, function(index1,visit) {
+            for (var i=0 ; i < osData.length; i++) {
+                if (visit.os_id == osData[i].id) {
+                    osData[i].count++;
+                }
+            }
+        });
+
+        // google.charts.setOnLoadCallback(drawChart);
+
+        // function drawChart() {
+          var table = [ ['Operating System', 'Count'] ];
+          for (var i=0 ; i < osData.length; i++) {
+              if (osData[i].count > 0) {
+                  table.push( [ osData[i].name, osData[i].count ] );
+              }
+          }
+
+          var data = google.visualization.arrayToDataTable(table);
+          var view = new google.visualization.DataView(data);
+          //view.setColumns();
+
+          var options = {
+            legend: {position: 'none'},
+            axisTitlesPosition: 'none',
+            hAxis: {format: 'none', textPosition: 'none'},
+            vAxis: {textPosition: 'none'}
+          };
+
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+
+          chart.draw(view, options);
+        // }
     }
 
 
