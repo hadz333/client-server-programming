@@ -1,4 +1,4 @@
-Client/Server Programming course assignments
+Client/Server Programming course assignments - Summer 2018
 
 Assignment 1: 
 •	Built 2-page website from scratch, given only images to start with 
